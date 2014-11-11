@@ -36,3 +36,8 @@ class Main:
         return plot1, plot2
 
 
+if __name__ == "__main__":
+    file_name = raw_input('Please enter the name of the file to be plotted. >>  ')
+    # file_name = '../website/static/soundfiles/{0}'.format(file_name)
+    main = Main(file_name, file_name)
+    main.class_manager()

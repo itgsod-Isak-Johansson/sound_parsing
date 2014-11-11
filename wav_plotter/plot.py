@@ -1,7 +1,7 @@
 __author__ = 'thedoctor'
 import os
-from website import uploads, soundfiles
-import matplotlib.pyplot as plt
+from website import uploads
+from matplotlib import pyplot as plt
 
 
 class Plot:
@@ -12,23 +12,29 @@ class Plot:
         self.file_name = file_name.replace('.wav', '.png')
 
     def time_amplitude_plot(self, time, data):
-
+        plt.close()
         file_name = 'td-plot_{0}'.format(self.file_name)
         file_name_path = os.path.join(uploads, file_name)
+        plt.xkcd()
         plt.plot(time, data, color='#FF69B4')
         plt.title('Plot of file: {0}'.format(file_name), color='#4B0082')
         plt.xlabel('time', color='#4B0082')
         plt.ylabel('amplitude', color='#4B0082')
+
         plt.savefig(file_name_path)
+
         return 'static/uploads/{0}'.format(file_name)
 
     def frequency_power_plot(self, frequency, power, max_x, max_y):
+        plt.close()
         file_name= 'fp-plot_{0}'.format(self.file_name)
         file_name_path = os.path.join(uploads, file_name)
         star_label = 'Highest power: {0}db, corresponding frequency value: {1}hz'.format(int(max_y), int(max_x))
 
         #create subplots ax1 and ax2
+        plt.xkcd()
         f, (ax1, ax2) = plt.subplots(2)
+
         plt.xlabel('Frequency(hz)', color='#4B0082')
         plt.ylabel('Power(db)', color='#4B0082')
 
