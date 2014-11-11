@@ -18,7 +18,6 @@
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     font-size: 25pt;
-
     line-height: 60%;
 }
 
@@ -50,11 +49,8 @@
 }
 #menu > li{
     margin: 0;
-
     display: inline-block;
     list-style-type: none;
-
-
 }
 
 

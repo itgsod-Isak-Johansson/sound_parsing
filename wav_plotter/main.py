@@ -11,28 +11,28 @@ class Main:
 
     version = '0.1'
 
-    def __init__(self, file_name):
+    def __init__(self, file_name_path, file_name):
+        self.file_name_path = file_name_path
         self.file_name = file_name
-        self.class_manager()
+
 
     def class_manager(self):
 
         #open wave file
-        data, rate = WaveFile.open_file(self.file_name)
+        data, rate = WaveFile.open_file(self.file_name_path)
         #handle mono and stereo wave files
         data = WaveFile.handle_channel_input(data)
 
         #Matrices
-        time = Matrices.time_amplitude(data, rate)
-        frequency, power = Matrices.frequency_power(data, rate)
-        max_x, max_y = Matrices.find_frequency_of_highest_power_value(frequency, power)
+        matrices = Matrices(data, rate)
+        time = matrices.time_amplitude(data, rate)
+        frequency, power = matrices.frequency_power(data, rate)
+        max_x, max_y = matrices.find_frequency_of_highest_power_value(frequency, power)
 
         #Plots
-        plot1 = Plot.time_amplitude_plot(time, data)
-        plot2 =Plot.frequency_power_plot(frequency, power, max_x, max_y, file_name)
+        plot = Plot(self.file_name)
+        plot1 = plot.time_amplitude_plot(time, data)
+        plot2 = plot.frequency_power_plot(frequency, power, max_x, max_y)
         return plot1, plot2
 
 
-if __name__ == "__main__":
-    file_name = raw_input('Please enter the name of the file to be plotted. >>  ')
-    Main(file_name)

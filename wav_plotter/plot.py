@@ -1,31 +1,30 @@
 __author__ = 'thedoctor'
-
+import os
+from website import uploads, soundfiles
 import matplotlib.pyplot as plt
-import StringIO
 
 
 class Plot:
 
     version = '0.1'
 
-    def __init__(self, time, data, frequency, power, max_x, max_y, file_name):
+    def __init__(self, file_name):
+        self.file_name = file_name.replace('.wav', '.png')
 
-        self.time_amplitude_plot(time, data)
-        self.frequency_power_plot(frequency, power, max_x, max_y, file_name)
+    def time_amplitude_plot(self, time, data):
 
-    @staticmethod
-    def time_amplitude_plot(time, data):
-
+        file_name = 'td-plot_{0}'.format(self.file_name)
+        file_name_path = os.path.join(uploads, file_name)
         plt.plot(time, data, color='#FF69B4')
+        plt.title('Plot of file: {0}'.format(file_name), color='#4B0082')
         plt.xlabel('time', color='#4B0082')
         plt.ylabel('amplitude', color='#4B0082')
+        plt.savefig(file_name_path)
+        return 'static/uploads/{0}'.format(file_name)
 
-        plt.savefig('../website/static/img/plot1.png')
-
-
-    @staticmethod
-    def frequency_power_plot(frequency, power, max_x, max_y, file_name):
-
+    def frequency_power_plot(self, frequency, power, max_x, max_y):
+        file_name= 'fp-plot_{0}'.format(self.file_name)
+        file_name_path = os.path.join(uploads, file_name)
         star_label = 'Highest power: {0}db, corresponding frequency value: {1}hz'.format(int(max_y), int(max_x))
 
         #create subplots ax1 and ax2
@@ -47,4 +46,6 @@ class Plot:
         legend = ax2.legend(loc='lower center', shadow=True, fontsize='x-small')
         # legend.get_frame().set_facecolor('')
 
-        plt.savefig('../website/static/img/plot2.png')
+        plt.savefig(file_name_path)
+        return 'static/uploads/{0}'.format(file_name)
+
