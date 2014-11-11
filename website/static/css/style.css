@@ -1,0 +1,88 @@
+#container {
+    width: 1000px;
+    margin-left: 90px;
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+#title {
+    padding-top: 45px;
+    padding-bottom: 140px;
+}
+#title > li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+#title-text {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 25pt;
+
+    line-height: 60%;
+}
+
+#title-subtext {
+    font-weight: lighter;
+    font-family: "Courier New", Courier, monospace;
+    margin:0;
+    padding:0;
+}
+
+
+
+#menu {
+    width: 970px;
+    border: 1px thin black
+}
+
+#menu_block {
+    float: left;
+    width: 400px;
+}
+#menu {
+    float:left;
+    margin:0;
+    padding: 0;
+    border-bottom: 1px solid #303030;
+    line-height: 0;
+
+}
+#menu > li{
+    margin: 0;
+
+    display: inline-block;
+    list-style-type: none;
+
+
+}
+
+
+
+#menu_div_line{
+    line-height: 0;
+    margin-bottom: 0;
+    height: 7px;
+    border-right: 1px solid #303030;
+    margin-left:40px;
+}
+
+#menu_text {
+    text-decoration: none;
+    color: black;
+    margin-left: 30px;
+    padding-bottom: 5px;
+    font-weight: lighter;
+    font-size: 18pt;
+
+}
+
+#plots > img {
+    margin: 5px;
+    padding: 0;
+    width: 485px;
+}
+
+#logo {
+    width: 200px;
+}
