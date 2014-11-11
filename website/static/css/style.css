@@ -9,6 +9,7 @@
     padding-top: 45px;
     padding-bottom: 140px;
 }
+
 #title > li {
     display: inline-block;
     list-style-type: none;
@@ -29,7 +30,6 @@
 }
 
 
-
 #menu {
     width: 970px;
     border: 1px thin black
@@ -39,21 +39,20 @@
     float: left;
     width: 400px;
 }
+
 #menu {
     float:left;
     margin:0;
     padding: 0;
     border-bottom: 1px solid #303030;
     line-height: 0;
-
 }
+
 #menu > li{
     margin: 0;
     display: inline-block;
     list-style-type: none;
 }
-
-
 
 #menu_div_line{
     line-height: 0;
@@ -70,7 +69,6 @@
     padding-bottom: 5px;
     font-weight: lighter;
     font-size: 18pt;
-
 }
 
 #plots > img {
