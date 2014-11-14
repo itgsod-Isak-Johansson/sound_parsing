@@ -1,3 +1,5 @@
+
+
 #container {
     width: 1000px;
     margin-left: 90px;
@@ -7,7 +9,7 @@
 
 #title {
     padding-top: 45px;
-    padding-bottom: 140px;
+    padding-bottom: 50px;
 }
 
 #title > li {
@@ -15,20 +17,9 @@
     list-style-type: none;
 }
 
-#title-text {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
-    font-size: 25pt;
-    line-height: 60%;
+#title-img {
+    width: 750px
 }
-
-#title-subtext {
-    font-weight: lighter;
-    font-family: "Courier New", Courier, monospace;
-    margin:0;
-    padding:0;
-}
-
 
 #menu {
     width: 970px;
@@ -37,7 +28,7 @@
 
 #menu_block {
     float: left;
-    width: 400px;
+    width: 300px;
 }
 
 #menu {
@@ -63,12 +54,10 @@
 }
 
 #menu_text {
+    margin-left: 20px;
     text-decoration: none;
-    color: black;
-    margin-left: 30px;
     padding-bottom: 5px;
-    font-weight: lighter;
-    font-size: 18pt;
+
 }
 
 #plots > img {
@@ -79,4 +68,12 @@
 
 #logo {
     width: 200px;
+}
+
+#graphs {
+    margin-top: 45px;
+}
+
+#graphs > img {
+    margin-left: 100px;
 }

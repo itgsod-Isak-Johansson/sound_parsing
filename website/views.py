@@ -2,26 +2,28 @@ __author__ = 'thedoctor'
 import sys, os
 sys.path.append('../')
 from flask import render_template, url_for,request, redirect
-from website import app, soundfiles
+from website import app
 from wav_plotter.main import Main
+from werkzeug.utils import secure_filename
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def home():
-    filename = 'a.wav'
-
-    if request.method == 'POST':
-        return redirect(url_for('plots', filename=filename))
     return render_template('index.html')
 
 
-@app.route('/<filename>', methods=['GET', 'POST'])
-def plots(filename):
-    filename_path = os.path.join(soundfiles, filename)
-    main = Main(filename_path, filename)
-    plot1, plot2 =main.class_manager()
-    return render_template('plots.html', plot1=plot1,  plot2=plot2)
-
+@app.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['file']
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return redirect(url_for('plots', filename=filename))
+    else:
+        return 'none file  selected'
 
 @app.route('/about')
 def about():
@@ -31,3 +33,14 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/plots/<filename>')
+def plots(filename):
+    filename_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    filename = filename.replace('.wav', '.png')
+    plot1 = 'time-amplitude-plot-{0}'.format(filename)
+    plot2 = 'frequency-power-plot-{0}'.format(filename)
+    main = Main(filename_path, os.path.join(app.config['PLOTS'], plot1), os.path.join(app.config['PLOTS'], plot2))
+    main.class_manager()
+    print plot1, plot2
+    return render_template('plots.html', plot1='/static/plots/{0}'.format(plot1), plot2='/static/plots/{0}'.format(plot2))

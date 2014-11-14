@@ -3,32 +3,23 @@ __author__ = 'thedoctor'
 import scipy.io.wavfile as wavfile
 
 
-class WaveFile:
+def open_file(filename):
+    rate, data = wavfile.read('{0}'.format(filename))
+    return data, rate
 
-    version = '0.1'
 
-    def __init__(self, file_name, data):
-        self.open_file(file_name)
-        self.handle_channel_input(data)
+def handle_channel_input(data):
 
-    @staticmethod
-    def open_file(file_name):
-        rate, data = wavfile.read('{0}'.format(file_name))
-        return data, rate
+    format = data.shape
 
-    @staticmethod
-    def handle_channel_input(data):
+    try:
+        channels = format[1]
 
-        format = data.shape
+    except IndexError:
+        channels = 1
 
-        try:
-            channels = format[1]
-
-        except IndexError:
-            channels = 1
-
-        if channels == 2:
-            data = data[:, 0]
-        return data
+    if channels == 2:
+        data = data[:, 0]
+    return data
 
 

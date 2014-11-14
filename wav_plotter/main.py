@@ -2,42 +2,38 @@ __author__ = 'thedoctor'
 
 import sys
 sys.path.append('../')
-from wave_file import WaveFile
-from plot import Plot
-from matrices import Matrices
+from wave_file import open_file, handle_channel_input
+from plot import frequency_power_plot, time_amplitude_plot
+from matrices import time_amplitude, find_frequency_of_highest_power_value, frequency_power
 
 
 class Main:
 
     version = '0.1'
 
-    def __init__(self, file_name_path, file_name):
+    def __init__(self, file_name_path, plot1, plot2):
         self.file_name_path = file_name_path
-        self.file_name = file_name
-
+        self.plot1 = plot1
+        self.plot2 = plot2
 
     def class_manager(self):
 
         #open wave file
-        data, rate = WaveFile.open_file(self.file_name_path)
+        data, rate = open_file(self.file_name_path)
         #handle mono and stereo wave files
-        data = WaveFile.handle_channel_input(data)
+        data = handle_channel_input(data)
 
         #Matrices
-        matrices = Matrices(data, rate)
-        time = matrices.time_amplitude(data, rate)
-        frequency, power = matrices.frequency_power(data, rate)
-        max_x, max_y = matrices.find_frequency_of_highest_power_value(frequency, power)
+
+        time = time_amplitude(data, rate)
+        frequency, power = frequency_power(data, rate)
+        max_x, max_y =find_frequency_of_highest_power_value(frequency, power)
 
         #Plots
-        plot = Plot(self.file_name)
-        plot1 = plot.time_amplitude_plot(time, data)
-        plot2 = plot.frequency_power_plot(frequency, power, max_x, max_y)
-        return plot1, plot2
+
+        time_amplitude_plot(time, data, self.plot1)
+        frequency_power_plot(frequency, power, max_x, max_y, self.plot2)
 
 
-if __name__ == "__main__":
-    file_name = raw_input('Please enter the name of the file to be plotted. >>  ')
-    # file_name = '../website/static/soundfiles/{0}'.format(file_name)
-    main = Main(file_name, file_name)
-    main.class_manager()
+
+

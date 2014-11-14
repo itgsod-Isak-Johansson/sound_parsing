@@ -2,11 +2,11 @@
 <html>
 
 <head lang="en">
-    {% block head %}
+
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <title>{% block title %}{% endblock %}</title>
-    {% endblock %}
+    {% block head %}{% endblock %}
 </head>
 <body>
     <div id="container"> <div id="header">
@@ -14,20 +14,18 @@
        <div id = 'content'>
            <ul id="title">
                 <li><img id="logo" src ="../static/img/wave4.png"></li>
-                <li><div id = "title-text">Sound Parser</div><p id='title-subtext'>School Project by: Isak Johansson & Anton Skogsberg</p></li>
+                <li><img id ='title-img' src ='../static/img/title.png'></li>
            </ul>
            <ul id = 'menu'>
                 <li><div id = "menu_block"></div></li>
                 <li><div id = 'menu_div_line'></div></li>
-                <li><a href = "{{ url_for('home') }}"  id = "menu_text">Home</a></li>
+                <li><a href = "{{ url_for('home') }}"><img id = 'menu_text' src = '../static/img/home-button.png'></a></li>
                 <li><div id = 'menu_div_line'></div></li>
-                <li><a href = "{{ url_for('about') }}" id = "menu_text">About</a></li>
+                <li><a href = "{{ url_for('about') }}" id = "menu_text"><img id = 'menu_text' src = '../static/img/about-button.png'></a></li>
                 <li><div id = 'menu_div_line'></div></li>
-                <li><a href = "{{ url_for('contact') }}"  id = "menu_text">Contact</a></li>
+                <li><a href = "{{ url_for('contact') }}"  id = "menu_text"><img id = 'menu_text' src = '../static/img/contact-button.png'></a></li>
            </ul>
            {% block content %}{% endblock %}
        </div>
     </div>
-
-
 </body>
