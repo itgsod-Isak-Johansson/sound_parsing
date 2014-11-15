@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 
 
 def time_amplitude_plot(time, data, save_to):
+    plt.close()
     plt.xkcd()
     plt.plot(time, data, color='#FF69B4')
     plt.title('Time-Amplitude plot', color='#4B0082')
@@ -16,6 +17,7 @@ def time_amplitude_plot(time, data, save_to):
 
 
 def frequency_power_plot(frequency, power, max_x, max_y, save_to):
+    plt.close()
     star_label = 'Highest power: {0}db, corresponding frequency value: {1}hz'.format(int(max_y), int(max_x))
 
     #create subplots ax1 and ax2
