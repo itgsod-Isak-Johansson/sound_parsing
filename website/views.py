@@ -14,16 +14,19 @@ def allowed_file(filename):
 def home():
     return render_template('index.html')
 
+@app.route('/plots', methods=['GET','POST'])
+def plots():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('show_plots', filename=filename))
+        else:
+            return 'not a valid file!'
+    return render_template('plots.html')
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    file = request.files['file']
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return redirect(url_for('plots', filename=filename))
-    else:
-        return 'none file  selected'
+
 
 @app.route('/about')
 def about():
@@ -35,7 +38,7 @@ def contact():
     return render_template('contact.html')
 
 @app.route('/plots/<filename>')
-def plots(filename):
+def show_plots(filename):
     filename_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     filename = filename.replace('.wav', '.png')
     plot1 = 'time-amplitude-plot-{0}'.format(filename)
@@ -43,4 +46,4 @@ def plots(filename):
     main = Main(filename_path, os.path.join(app.config['PLOTS'], plot1), os.path.join(app.config['PLOTS'], plot2))
     main.class_manager()
     print plot1, plot2
-    return render_template('plots.html', plot1='/static/plots/{0}'.format(plot1), plot2='/static/plots/{0}'.format(plot2))
+    return render_template('show_plots.html', plot1='/static/plots/{0}'.format(plot1), plot2='/static/plots/{0}'.format(plot2))
