@@ -3,6 +3,13 @@
 {% block title %}Show Plots{% endblock %}
 
 {% block content %}
+        <form action="{{url_for('plots')}}" method="post" enctype="multipart/form-data">
+        <div class="buttons">
+
+            <a class="butn orange"><input type="file" name="file" id ='inputfile'></a>
+            <input type='submit' value="Upload" class="butn pink">
+        </div>
+        </form>
         <div id = "plots">
             <img src="{{plot1}}">
             <img src="{{plot2}}">

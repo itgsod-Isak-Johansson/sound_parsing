@@ -9,6 +9,8 @@ body {
     font-family: "humor_sans";
 }
 
+
+
 input {
     font-family: "humor_sans";
 }
@@ -17,6 +19,22 @@ ul {
     list-style-type: none;
 }
 
+h2 {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#todo {
+    list-style-type: none;
+    margin-left: 70px;
+
+}
+
+#xkcd {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 115px;
+}
 #container {
     width: 1000px;
     margin-left: 90px;
@@ -26,7 +44,8 @@ ul {
 
 #title {
     padding-top: 45px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
+
 }
 #title > li {
     display: inline-block;
@@ -48,16 +67,18 @@ ul {
 #plots > img {
     margin: 5px;
     width: 80%;
-    padding-left: 70px;
+    padding-left: 95px;
 }
 
 #logo {
     width: 300px;
 }
 
-#textbody > li {
-    margin-top: 5%
+#textbody {
+    margin-left: 45px;
 }
+
+
 
 #textbody > li > ul > li {
     padding-left: 3%;
@@ -78,7 +99,6 @@ ul {
 }
 
 
-
 .upload {
     display: block;
     width: 157px;
@@ -95,10 +115,7 @@ ul {
     overflow: hidden;
 }
 
-h1 {
-  color: #55acee;
-  text-align: center;
-}
+
 
 .link {
   border-bottom: 2px dotted #55acee;
@@ -118,7 +135,7 @@ h1 {
 .butn {
     float: left;
     cursor: pointer;
-    margin: 10px;
+
     border-radius: 5px;
     text-decoration: none;
     font-size: 22px;
@@ -192,30 +209,31 @@ h1 {
 }
 
 .orange {
+  margin-left: 15px;
   background: url('../img/1choose.png');
   border: 2px #e67e22 solid;
 }
 
 .orange:hover {
+  margin-left: 15px;
   background: url("../img/2choose.png");
 }
 
 .pink {
-  width: 100px;
-  height: 50px;
+  width: 110px;
+  height: 55px;
   color: #f10077;
   border: 2px #f10077 solid;
 }
 
 .pink:hover {
-  width: 100px;
-  height: 50px;
+  width: 110px;
+  height: 55px;
   color: #fff;
   background-color: #f10077;
 }
 
 .buttons {
-  padding-top: 30px;
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;

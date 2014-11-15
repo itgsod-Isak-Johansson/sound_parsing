@@ -17,15 +17,6 @@
                 <li><img id="logo" src ="../static/img/wave4.png"></li>
                 <li><div id = "title-text">Sound Parser</div><p id='title-subtext'>School Project by: Isak Johansson & Anton Skogsberg</p></li>
            </ul>
-           <!--<ul id = 'menu'>-->
-                <!--<li><div id = "menu_block"></div></li>-->
-                <!--<li><div id = 'menu_div_line'></div></li>-->
-                <!--<li><a href = "{{ url_for('home') }}"  id = "menu_text">Home</a></li>-->
-                <!--<li><div id = 'menu_div_line'></div></li>-->
-                <!--<li><a href = "{{ url_for('about') }}" id = "menu_text">About</a></li>-->
-                <!--<li><div id = 'menu_div_line'></div></li>-->
-                <!--<li><a href = "{{ url_for('contact') }}"  id = "menu_text">Contact</a></li>-->
-           <!--</ul>-->
            <div class="buttons">
                 <a class="btn blue" href="{{url_for('home')}}">Home</a>
                 <a class="btn green" href="{{url_for('plots')}}">Plots</a>
@@ -35,5 +26,8 @@
            <div id = 'line'></div>
            {% block content %}{% endblock %}
        </div>
+    </div>
+    <div id='footer'>
+
     </div>
 </body>
