@@ -1,5 +1,7 @@
-
-
+@font-face {
+    font-family: humor_sans;
+    src: url('../fonts/humor_sans.ttf');
+}
 #container {
     width: 1000px;
     margin-left: 90px;
@@ -9,17 +11,29 @@
 
 #title {
     padding-top: 45px;
-    padding-bottom: 50px;
+    padding-bottom: 140px;
 }
-
 #title > li {
     display: inline-block;
     list-style-type: none;
 }
 
-#title-img {
-    width: 750px
+#title-text {
+    font-family: "humor_sans";
+    font-weight: bold;
+    font-size: 25pt;
+
+    line-height: 60%;
 }
+
+#title-subtext {
+    font-weight: lighter;
+    font-family: "humor_sans";
+    margin:0;
+    padding:0;
+}
+
+
 
 #menu {
     width: 970px;
@@ -28,22 +42,26 @@
 
 #menu_block {
     float: left;
-    width: 300px;
+    width: 400px;
 }
-
 #menu {
     float:left;
     margin:0;
     padding: 0;
     border-bottom: 1px solid #303030;
     line-height: 0;
-}
 
+}
 #menu > li{
     margin: 0;
+
     display: inline-block;
     list-style-type: none;
+
+
 }
+
+
 
 #menu_div_line{
     line-height: 0;
@@ -54,9 +72,13 @@
 }
 
 #menu_text {
-    margin-left: 20px;
+    font-family: "humor_sans";
     text-decoration: none;
+    color: black;
+    margin-left: 30px;
     padding-bottom: 5px;
+    font-weight: lighter;
+    font-size: 18pt;
 
 }
 
@@ -67,13 +89,5 @@
 }
 
 #logo {
-    width: 200px;
-}
-
-#graphs {
-    margin-top: 45px;
-}
-
-#graphs > img {
-    margin-left: 100px;
+    width: 300px;
 }
