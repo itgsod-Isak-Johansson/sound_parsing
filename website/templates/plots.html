@@ -5,7 +5,10 @@
 
 {% block content %}
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
+        <div class="buttons">
+
+            <a class="butn orange"><input type="file" name="file" id ='inputfile'></a>
+            <input type='submit' value="Upload" class="butn pink">
+        </div>
     </form>
 {% endblock %}
