@@ -44,12 +44,16 @@ h2 {
 
 #title {
     padding-top: 45px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
 
 }
 #title > li {
     display: inline-block;
     list-style-type: none;
+}
+
+#title > li > p {
+    padding-bottom: 40px;
 }
 
 #title-text {
@@ -98,11 +102,23 @@ h2 {
 
 }
 
+#footer {
+    margin-top: 40px;
+    margin-left: 12.5%;
+    height: 1px;
+    width: 75%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.69);
+}
+#footer >  {
+    margin-top: 15px;
+
+}
 
 .upload {
     display: block;
     width: 157px;
-    background: url('../img/choose.png');
+    background: url('../img/1choose.png');
     height: 57px;
     overflow: hidden;
 }
@@ -221,14 +237,14 @@ h2 {
 
 .pink {
   width: 110px;
-  height: 55px;
+  height: 54px;
   color: #f10077;
   border: 2px #f10077 solid;
 }
 
 .pink:hover {
   width: 110px;
-  height: 55px;
+  height: 54px;
   color: #fff;
   background-color: #f10077;
 }
